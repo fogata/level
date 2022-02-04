@@ -14,7 +14,6 @@ namespace Level.Bootstrap
         public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers();
-            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Level", Version = "v1" });
@@ -23,6 +22,7 @@ namespace Level.Bootstrap
             services.ConfigureMVCServices();
             services.ConfigurePersistenceServices(configuration);
             services.ConfigureMediatrServices();
+            services.ConfigureRepositoriesServices();
             return services;
         }
 

@@ -8,22 +8,22 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Level.Application.Mediators.Cart.GetAll
+namespace Level.Application.Mediators.Article.GetAll
 {
     public class GetAllHandler : BaseHandler<IEnumerable<GetAllResponse>>, IRequestHandler<GetAllRequest, EntityResult<IEnumerable<GetAllResponse>>>
     {
         private readonly Actions _action = Actions.GETALL;
-        private readonly ICartQuery _cartQuery;
-        public GetAllHandler(ILogger<IEnumerable<GetAllResponse>> logger, ICartQuery cartQuery)
+        private readonly IArticleQuery _articleQuery;
+
+        public GetAllHandler(ILogger<IEnumerable<GetAllResponse>> logger, IArticleQuery articleQuery)
             : base(logger)
         {
-            _cartQuery = cartQuery;
+            _articleQuery = articleQuery;
         }
-
         public async Task<EntityResult<IEnumerable<GetAllResponse>>> Handle(GetAllRequest request, CancellationToken cancellationToken)
         {
             var result = new EntityResult<IEnumerable<GetAllResponse>>(_action, request.Notifications);
-            
+
             if (result.Invalid)
             {
                 result.Error = ErrorCode.BadRequest;
@@ -32,10 +32,9 @@ namespace Level.Application.Mediators.Cart.GetAll
 
             try
             {
-                var beneficiaries = await _cartQuery.GetAllAsync(
-                    request.UserPersonId);
+                var articles = await _articleQuery.GetAllAsync();
 
-                result.Entity = beneficiaries.Select(x => (GetAllResponse)x).ToList();
+                result.Entity = articles.Select(x => (GetAllResponse)x).ToList();
             }
             catch (Exception ex)
             {

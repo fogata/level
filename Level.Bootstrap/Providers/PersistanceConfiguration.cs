@@ -16,6 +16,7 @@ namespace Level.Bootstrap.Providers
             var connectionString = configuration.GetConnectionString("level");
 
             services.AddTransient<Compiler, SqlServerCompiler>();
+            
             services.AddTransient<IDbConnection>(b => new SqlConnection(connectionString));
 
             services.AddDbContextPool<LevelDbContext>(options => options.UseSqlServer(connectionString));

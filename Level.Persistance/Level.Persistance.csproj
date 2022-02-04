@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Level.Domain\Level.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
 </Project>

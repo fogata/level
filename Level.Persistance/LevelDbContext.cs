@@ -47,6 +47,6 @@ namespace Level.Persistance
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Articles> Articles { get; set; }
 
-        public DbSet<ArticleItem> items { get; set; }
+        public DbSet<ArticleItem> ArticleItems { get; set; }
     }
 }

@@ -25,41 +25,25 @@ namespace Level.Persistance.Queries
         {
             var queryFactory = new QueryFactory(_connection, _sqlKataCompiler);
             var query = queryFactory
-                .Query("Beneficiaries as B")
+                .Query("ArticleItem as B")
                 .Select
                 (
-                    "B.Id",
-                    "B.UserPersonId",
-                    "B.AccountId",
-                    "B.PersonId",
-                    "B.Name",
-                    "B.FirstName",
-                    "B.MiddleName",
-                    "B.LastName",
-                    "B.Document",
-                    "B.DocumentType",
-                    "B.Phone",
-                    "B.Alias",
-                    "B.Country",
-                    "B.CompanyName",
-                    "A.Id",
-                    "A.AccountId",
-                    "A.AccountNumber",
-                    "A.BankName",
-                    "A.BankNumber",
-                    "A.Branch",
-                    "A.Type",
-                    "A.IsExternal",
-                    "A.BeneficiaryId"
+                    "B.id",
+                    "B.cartId",
+                    "B.articleId",
+                    "B.quantity",
+                    "B.discountType",
+                    "B.discount"
                 )
-                .Join("Accounts as A", "B.Id", "A.BeneficiaryId")
-                .Where("B.UserPersonId", userId);
+                .Join("Cart as A", "B.cartId", "A.id");
+                //.Where("A.userId", userId);
 
             var sqlResult = _sqlKataCompiler.Compile(query);
 
             var result = await _connection.QueryAsync<Cart>(sqlResult.Sql);
 
             return result;
+
         }
     }
 }
