@@ -57,16 +57,7 @@ namespace Level.Persistance.Queries
 
             var sqlResult = _sqlKataCompiler.Compile(query);
 
-            var result = await _connection.QueryAsync<Cart, ArticleItem, Articles>
-                 (
-                  sqlResult.Sql,
-                 (cart, item) =>
-                 {
-                     cart.items = item;
-
-                     return cart;
-                 },
-                param: sqlResult.NamedBindings);
+            var result = await _connection.QueryAsync<Cart>(sqlResult.Sql);
 
             return result;
         }
