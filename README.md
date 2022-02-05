@@ -32,6 +32,8 @@ If you dont have a SQL installed at docker, get one with this command:
 And after:
 - docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
 
+After that, set the connectionstring at file appsettings.Development.json
+
 
 > The overriding design goal for Markdown's
 > formatting syntax is to make it as readable
