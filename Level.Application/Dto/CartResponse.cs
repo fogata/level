@@ -1,4 +1,5 @@
 ﻿using Level.Application.Mediators.Cart.GetAll;
+using Newtonsoft.Json;
 
 namespace Level.Application.Dto
 {
@@ -7,13 +8,13 @@ namespace Level.Application.Dto
         public int id { get; set; }
         public decimal total { get; set; }
 
-        public static explicit operator CartResponse(GetAllResponse v)
+        public static explicit operator CartResponse(GetAllResponse value)
         {
-            return new CartResponse
-            {
-                id = v.id,
-                total = v.total
-            };
+            var serializedValue = JsonConvert.SerializeObject(value);
+
+            return JsonConvert.DeserializeObject<CartResponse>(serializedValue);
         }
+
+       
     }
 }

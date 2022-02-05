@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Level.Persistance.Migrations
 {
     [DbContext(typeof(LevelDbContext))]
-    [Migration("20220205145346_Initial")]
+    [Migration("20220205200648_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,6 +80,31 @@ namespace Level.Persistance.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Delivery");
+                });
+
+            modelBuilder.Entity("Level.Domain.Entities.Discount", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("articleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("total")
+                        .HasColumnType("int");
+
+                    b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<Guid>("userId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Discount");
                 });
 #pragma warning restore 612, 618
         }

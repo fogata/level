@@ -50,6 +50,22 @@ namespace Level.Persistance.Migrations
                 {
                     table.PrimaryKey("PK_Delivery", x => x.id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Discount",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    articleId = table.Column<int>(type: "int", nullable: false),
+                    userId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    type = table.Column<string>(type: "varchar(250)", nullable: false),
+                    total = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Discount", x => x.id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -62,6 +78,9 @@ namespace Level.Persistance.Migrations
 
             migrationBuilder.DropTable(
                 name: "Delivery");
+
+            migrationBuilder.DropTable(
+                name: "Discount");
         }
     }
 }
