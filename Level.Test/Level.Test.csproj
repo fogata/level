@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Level.Application\Level.Application.csproj" />
+    <ProjectReference Include="..\Level.Bootstrap\Level.Bootstrap.csproj" />
   </ItemGroup>
 
 </Project>
