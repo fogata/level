@@ -10,7 +10,7 @@ inside of a virtual cart.
 
 Technologies / tools used to make this project:
 
-- [.Net Core] - frameqork
+- [.Net Core] - framework
 - [C#] - language
 - [Visual studio] - Tool to develop this Api's
 - [Postman] - Tool to test Api's
@@ -25,12 +25,12 @@ Has two ways to run this project:
 - Execute with docker
 - Execute local( is more fast)
 
-- ✨Run with docker ✨
+ ✨Run with docker ✨
 
 If you dont have a SQL installed at docker, get one with this command:
-> docker pull mcr.microsoft.com/mssql/server:latest
+- docker pull mcr.microsoft.com/mssql/server:latest
 And after:
-> docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
+- docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
 
 
 > The overriding design goal for Markdown's
