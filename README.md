@@ -4,23 +4,34 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 This application ilustrate an scenario that a user put some articles
-AngularJS-powered HTML5 Markdown editor.
+inside of a virtual cart.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+## Tech
 
-## Features
+Technologies / tools used to make this project:
 
-- Import a HTML file and watch it magically convert to Markdown
-- Drag and drop images (requires your Dropbox account be linked)
-- Import and save files from GitHub, Dropbox, Google Drive and One Drive
-- Drag and drop markdown and HTML files into Dillinger
-- Export documents as Markdown, HTML and PDF
+- [.Net Core] - frameqork
+- [C#] - language
+- [Visual studio] - Tool to develop this Api's
+- [Postman] - Tool to test Api's
+- [Entity Framework] - persistance / database
+- [Docker] - To deploy this application
+- [SQL] - database
+- [CQRS] - Architecture to support many calls at the same time
 
-Markdown is a lightweight markup language based on the formatting conventions
-that people naturally use in email.
-As [John Gruber] writes on the [Markdown site][df1]
+## Installation / run
+
+Has two ways to run this project:
+- Execute with docker
+- Execute local( is more fast)
+
+- ✨Run with docker ✨
+
+If you dont have a SQL installed at docker, get one with this command:
+> docker pull mcr.microsoft.com/mssql/server:latest
+And after:
+> docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
+
 
 > The overriding design goal for Markdown's
 > formatting syntax is to make it as readable
