@@ -29,6 +29,7 @@ Has two ways to run this project:
 
 If you dont have a SQL installed at docker, get one with this command:
 - docker pull mcr.microsoft.com/mssql/server:latest
+
 And after:
 - docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
 
