@@ -24,22 +24,8 @@ namespace Level.Persistance.Queries
 
         public async Task<IEnumerable<CartSum>> GetAllAsync(Guid userId)
         {
-            var queryFactory = new QueryFactory(_connection, _sqlKataCompiler);
-            //var query = queryFactory
-            //    .Query("Cart c")
-            //    .Select
-            //    (
-            //        "c.id",
-            //        "c.userid",
-            //        "Sum(a.price * c.quantity)"
-            //    )
-            //    .Join("Article a","c.articleid","a.id")
-            //    .Where("c.userId", userId);
-
-            //var sqlResult = _sqlKataCompiler.Compile(query);
-
-            var query = string.Format("select c.id, c.userid, sum(a.price * c.quantity) total from Cart c " +
-                "inner join Article a on c.articleId = a.id where c.userid = '{0}' group by c.id, c.userid", userId);
+            var query = string.Format("select c.id, c.userid, c.articleId, sum(a.price * c.quantity) total from Cart c " +
+                "inner join Article a on c.articleId = a.id where c.userid = '{0}' group by c.id, c.userid, c.articleId", userId);
 
             var result = await _connection.QueryAsync<CartSum>(query);
 

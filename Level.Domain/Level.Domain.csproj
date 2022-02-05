@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enum\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="SqlKata" Version="2.3.7" />
   </ItemGroup>
 

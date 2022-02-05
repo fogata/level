@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Level.Persistance.Migrations
 {
     [DbContext(typeof(LevelDbContext))]
-    [Migration("20220204200749_Initial")]
+    [Migration("20220205145346_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,42 +20,6 @@ namespace Level.Persistance.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Level.Domain.Entities.ArticleItem", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("articleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("articlesid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("cartId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("discount")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("discountType")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("quantity")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(1);
-
-                    b.HasKey("id");
-
-                    b.HasIndex("articlesid");
-
-                    b.HasIndex("cartId");
-
-                    b.ToTable("ArticleItem");
-                });
 
             modelBuilder.Entity("Level.Domain.Entities.Articles", b =>
                 {
@@ -81,7 +45,6 @@ namespace Level.Persistance.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("articleId")
@@ -98,21 +61,25 @@ namespace Level.Persistance.Migrations
                     b.ToTable("Cart");
                 });
 
-            modelBuilder.Entity("Level.Domain.Entities.ArticleItem", b =>
+            modelBuilder.Entity("Level.Domain.Entities.Delivery", b =>
                 {
-                    b.HasOne("Level.Domain.Entities.Articles", "articles")
-                        .WithMany()
-                        .HasForeignKey("articlesid");
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasOne("Level.Domain.Entities.Cart", "cart")
-                        .WithMany()
-                        .HasForeignKey("cartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<decimal>("maxPrice")
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Navigation("articles");
+                    b.Property<decimal>("minPrice")
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Navigation("cart");
+                    b.Property<decimal>("price")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Delivery");
                 });
 #pragma warning restore 612, 618
         }

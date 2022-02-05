@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\" />
+    <ProjectReference Include="..\Level.Domain\Level.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Level.Domain\Level.Domain.csproj" />
+    <Folder Include="Mediators\Discount\GetAll\" />
   </ItemGroup>
 
 </Project>
