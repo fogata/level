@@ -9,18 +9,21 @@ namespace Level.Persistance
             : base(options)
         { }
 
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Articles> Articles { get; set; }
+
+        public DbSet<ArticleItem> ArticleItems{ get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cart>(p =>
             {
                 p.ToTable("Cart");
                 p.HasKey("id");
+                p.Property(p => p.articleId).HasColumnType("int");
                 p.Property(p => p.userId).HasColumnType("uniqueidentifier");
-                p.HasMany(p => p.items)
-                .WithOne(b => b.cart)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-             });
+                p.Property(p => p.quantity).HasColumnType("int");
+            });
 
             modelBuilder.Entity<Articles>(p =>
             {
@@ -43,10 +46,5 @@ namespace Level.Persistance
             });
 
         }
-
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<Articles> Articles { get; set; }
-
-        public DbSet<ArticleItem> ArticleItems { get; set; }
     }
 }

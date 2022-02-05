@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Level.Domain.Entities
+﻿namespace Level.Domain.Entities
 {
     public class Articles
     {

@@ -1,32 +1,40 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Level.Persistance.Migrations
 {
-    public partial class UpdateDb : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Article_Cart_cartid",
-                table: "Article");
+            migrationBuilder.CreateTable(
+                name: "Article",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "varchar(50)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Article", x => x.id);
+                });
 
-            migrationBuilder.DropIndex(
-                name: "IX_Article_cartid",
-                table: "Article");
-
-            migrationBuilder.DropColumn(
-                name: "cartid",
-                table: "Article");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "name",
-                table: "Article",
-                type: "varchar(50)",
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "varchar(50)",
-                oldNullable: true);
+            migrationBuilder.CreateTable(
+                name: "Cart",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    articleId = table.Column<int>(type: "int", nullable: false),
+                    userId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cart", x => x.id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "ArticleItem",
@@ -39,7 +47,7 @@ namespace Level.Persistance.Migrations
                     articlesid = table.Column<int>(type: "int", nullable: true),
                     quantity = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     discountType = table.Column<string>(type: "varchar(50)", nullable: true),
-                    discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    discount = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,33 +82,11 @@ namespace Level.Persistance.Migrations
             migrationBuilder.DropTable(
                 name: "ArticleItem");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "name",
-                table: "Article",
-                type: "varchar(50)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "varchar(50)");
+            migrationBuilder.DropTable(
+                name: "Article");
 
-            migrationBuilder.AddColumn<int>(
-                name: "cartid",
-                table: "Article",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Article_cartid",
-                table: "Article",
-                column: "cartid");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Article_Cart_cartid",
-                table: "Article",
-                column: "cartid",
-                principalTable: "Cart",
-                principalColumn: "id",
-                onDelete: ReferentialAction.Cascade);
+            migrationBuilder.DropTable(
+                name: "Cart");
         }
     }
 }

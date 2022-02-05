@@ -1,4 +1,5 @@
-﻿using Level.Application.Interfaces.Queries;
+﻿using Level.Application.Dto.Repository;
+using Level.Application.Interfaces.Queries;
 using Level.Application.Notification;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -32,10 +33,10 @@ namespace Level.Application.Mediators.Cart.GetAll
 
             try
             {
-                var beneficiaries = await _cartQuery.GetAllAsync(
+                var cartItems = await _cartQuery.GetAllAsync(
                     request.UserPersonId);
 
-                result.Entity = beneficiaries.Select(x => (GetAllResponse)x).ToList();
+                result.Entity = cartItems.Select(x => (GetAllResponse)x).ToList();
             }
             catch (Exception ex)
             {

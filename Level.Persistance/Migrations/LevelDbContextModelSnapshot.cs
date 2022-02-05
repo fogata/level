@@ -79,9 +79,13 @@ namespace Level.Persistance.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("articleitemId")
+                    b.Property<int>("articleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantity")
                         .HasColumnType("int");
 
                     b.Property<Guid>("userId")
@@ -99,7 +103,7 @@ namespace Level.Persistance.Migrations
                         .HasForeignKey("articlesid");
 
                     b.HasOne("Level.Domain.Entities.Cart", "cart")
-                        .WithMany("items")
+                        .WithMany()
                         .HasForeignKey("cartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -107,11 +111,6 @@ namespace Level.Persistance.Migrations
                     b.Navigation("articles");
 
                     b.Navigation("cart");
-                });
-
-            modelBuilder.Entity("Level.Domain.Entities.Cart", b =>
-                {
-                    b.Navigation("items");
                 });
 #pragma warning restore 612, 618
         }

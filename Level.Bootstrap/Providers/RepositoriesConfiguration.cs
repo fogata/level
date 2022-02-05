@@ -11,6 +11,8 @@ namespace Level.Bootstrap.Providers
         public static IServiceCollection ConfigureRepositoriesServices(this IServiceCollection services)
         {
             services.AddTransient<IArticleItemRepository, ArticleItemCommand>();
+            services.AddTransient<ICartRepository, CartCommand>();
+
             services.AddTransient<ICartQuery, CartQuery>();
             services.AddTransient<IArticleQuery, ArticleQuery>();
 
