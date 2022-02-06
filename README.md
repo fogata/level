@@ -74,10 +74,10 @@ I hope the end result has served the purpose of the test.
 
 | God |  
 | Wife |  
-| Family |
-| Friends |
-| Açai |
-| Coffe |
+| Family |  
+| Friends |  
+| Açai |  
+| Coffe |  
 | Google | search is life! |
 
 ## Development
