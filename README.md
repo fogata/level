@@ -42,7 +42,7 @@ After that, set the connectionstring at file appsettings.Development.json
 
 Follow the steps bellow to complete setup:
 
-- Step 1
+- Step 1:
  Open the package manager console in Visual studio and execute the command line:
 - add-migration Initial
 
@@ -54,7 +54,7 @@ And after:
 - Take the file script-insert and execute in you sql management or other toll that you prefer.
 
 
-## Tech
+## Final considerations
 
 Dillinger uses a number of open source projects to work properly:
 
