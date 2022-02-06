@@ -23,6 +23,15 @@ namespace Level.Application.Mediators.Discount.Insert
                     userId.ToString(), "userId", "quantity should not be empty,null or less than 0.", NotificationCode.FieldMissing
                 )
             );
+
+            foreach (var discount in item)
+            {
+                AddNotifications(new Contract()
+                .IsLowerThan(0,discount.articleId, "articleId", "articleId should not be empty,null or less than 0.", NotificationCode.FieldMissing)
+                .IsLowerThan(0,discount.total, "total", "total should not be empty,null or less than 0", NotificationCode.FieldMissing)
+                .IsNotNullOrEmpty(discount.type, "type", "type should not be empty,null or less than 0.", NotificationCode.FieldMissing)
+            );
+            }
         }
 
     }
