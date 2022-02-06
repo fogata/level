@@ -45,6 +45,7 @@ Follow the steps bellow to complete setup:
 - Step 1
 Open the package manager console in Visual studio and execute the command line:
 - add-migration Initial
+
 And after:
 - Update-Database -verbose
 
