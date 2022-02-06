@@ -22,7 +22,7 @@ Technologies / tools / Architecture / Patterns / Package used to make this proje
 - [S.O.L.I.D] - Priciple
 - [DDD] - Design
 
-## Installation / run
+## Installation / Run
 
 There are two ways to run this project:
 - Execute with docker
