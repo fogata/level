@@ -33,10 +33,14 @@ There are two ways to run this project:
 - Open project in visual studio IDE and select level to start the project.
 
 If you dont have a SQL installed at docker, get one with this command:
-- docker pull mcr.microsoft.com/mssql/server:latest
+```sh
+docker pull mcr.microsoft.com/mssql/server:latest
+```
 
 And after:
-- docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
+```sh
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=1q2w3e4r@#$' -p 1401:1433 -d --name=SQLSERVER mcr.microsoft.com/mssql/server:latest
+```
 
 After that, set the connectionstring at file appsettings.Development.json
 
@@ -50,8 +54,9 @@ add-migration Initial
 ```
 
 And after:
-- Update-Database -verbose
-
+```sh
+Update-Database -verbose
+```
 
 - Inside the directory Infra and inside the project Level.Persistance exist an directory called Sql Script
 - Take the file script-insert and execute in you sql management or other toll that you prefer.
