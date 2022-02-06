@@ -8,7 +8,7 @@ inside of a virtual cart.
 
 ## Tech
 
-Technologies / tools used to make this project:
+Technologies / tools / Architecture / Patterns used to make this project:
 
 - [.Net Core] - framework
 - [C#] - language
@@ -18,6 +18,7 @@ Technologies / tools used to make this project:
 - [Docker] - To deploy this application
 - [SQL] - database
 - [CQRS] - Architecture to support many calls at the same time
+- [S.O.L.I.D]
 
 ## Installation / run
 
@@ -26,6 +27,10 @@ Has two ways to run this project:
 - Execute local( is more fast)
 
  ✨Run with docker ✨
+Open project in visual studio IDE and select docker to start the project.
+
+✨Run local ✨
+Open project in visual studio IDE and select level to start the project.
 
 If you dont have a SQL installed at docker, get one with this command:
 - docker pull mcr.microsoft.com/mssql/server:latest
@@ -35,18 +40,18 @@ And after:
 
 After that, set the connectionstring at file appsettings.Development.json
 
+Follow the steps bellow to complete setup:
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+- Step 1
+- Open the package manager console in Visual studio and execute the command line:
+> add-migration Initial
+- And after:
+> Update-Database -verbose
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
+
+- Inside the directory Infra and inside the project Level.Persistance exist an directory called Sql Script
+- Take the file script-insert and execute in you sql management or other toll that you prefer.
+
 
 ## Tech
 
