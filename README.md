@@ -19,7 +19,8 @@ Technologies / tools / Architecture / Patterns / Package used to make this proje
 - [Docker] - To deploy this application
 - [SQL] - database
 - [CQRS] - Architecture to support many calls at the same time
-- [S.O.L.I.D]
+- [S.O.L.I.D] - Priciple
+- [DDD] - Design
 
 ## Installation / run
 
