@@ -72,9 +72,6 @@ I hope the end result has served the purpose of the test.
 
 ## Thanks
 
-
-
-| ------ | ------ |
 | God |  
 | Wife |  
 | Family |
