@@ -86,4 +86,4 @@ I hope the end result has served the purpose of the test.
 
 MIT
 
-**Free Software, Hell Yeah!**
+**Free Software( no comercial use), Hell Yeah!**
