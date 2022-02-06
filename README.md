@@ -8,10 +8,11 @@ inside of a virtual cart.
 
 ## Tech
 
-Technologies / tools / Architecture / Patterns used to make this project:
+Technologies / tools / Architecture / Patterns / Package used to make this project:
 
 - [.Net Core] - framework
 - [C#] - language
+- [Flunt] - package of notifications
 - [Visual studio] - Tool to develop this Api's
 - [Postman] - Tool to test Api's
 - [Entity Framework] - persistance / database
@@ -27,10 +28,10 @@ There are two ways to run this project:
 - Execute local( is more fast)
 
  ✨Run with docker ✨
-- Open project in visual studio IDE and select docker to start the project.
+- Open project in visual studio IDE, right click on solution and restore Nuget packages and select docker to start the project.
 
 ✨Run local ✨
-- Open project in visual studio IDE and select level to start the project.
+- Open project in visual studio IDE, right click on solution and restore Nuget packages and select level to start the project.
 
 If you dont have a SQL installed at docker, get one with this command:
 ```sh
