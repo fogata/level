@@ -24,6 +24,9 @@ namespace Level
 
             services.AddTransient<IBasePresenter, BasePresenter>();
             services.AddTransient<ICartPresenter, CartPresenter>();
+            services.AddTransient<IDiscountPresenter, DiscountPresenter>();
+            services.AddTransient<IArticlePresenter, ArticlePresenter>();
+            services.AddTransient<IDeliveryPresenter, DeliveryPresenter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
