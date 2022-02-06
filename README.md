@@ -22,15 +22,15 @@ Technologies / tools / Architecture / Patterns used to make this project:
 
 ## Installation / run
 
-Has two ways to run this project:
+There are two ways to run this project:
 - Execute with docker
 - Execute local( is more fast)
 
  ✨Run with docker ✨
-Open project in visual studio IDE and select docker to start the project.
+- Open project in visual studio IDE and select docker to start the project.
 
 ✨Run local ✨
-Open project in visual studio IDE and select level to start the project.
+- Open project in visual studio IDE and select level to start the project.
 
 If you dont have a SQL installed at docker, get one with this command:
 - docker pull mcr.microsoft.com/mssql/server:latest
