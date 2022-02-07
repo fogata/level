@@ -72,6 +72,7 @@ It would be prudent for a commercial application to put more logs and unit tests
 Proposed improvements:
 - Circuit breaker / retry pattern.
 - JWT to authenticate the api.
+
 I hope the final result has served the purpose of this test.
 
 
