@@ -69,6 +69,9 @@ Update-Database -verbose
 This project was developed to expose my experience in the proposed technologies. As it is not a project for commercial purposes, some things were left out, for example CQRS only has 1 DB, but the correct way would be to have 2 or more DBs (read, write and maybe a NOSQL).
 There is a delete for the virtual cart, but it is not exposed via api. I missed an "owner" for the virtual cart, so I put a user ID in the cart.
 It would be prudent for a commercial application to put more logs and unit tests. It would be valid to create an article registration and delivery fee and not a sql script like I did.
+Proposed improvements:
+Circuit breaker / retry pattern
+JWT to authenticate the api
 I hope the final result has served the purpose of this test.
 
 
